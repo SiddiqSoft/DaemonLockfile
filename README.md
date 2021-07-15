@@ -1,12 +1,12 @@
 DaemonLockfile : A simple lockfile implementation for modern C++
 -------------------------------------------
 
-[![CodeQL](https://github.com/SiddiqSoft/DaemonLockfileandle/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/SiddiqSoft/DaemonLockfileandle/actions/workflows/codeql-analysis.yml)
-[![Build Status](https://dev.azure.com/siddiqsoft/siddiqsoft/_apis/build/status/SiddiqSoft.DaemonLockfileandle?branchName=main)](https://dev.azure.com/siddiqsoft/siddiqsoft/_build/latest?definitionId=4&branchName=main)
+[![CodeQL](https://github.com/SiddiqSoft/DaemonLockfile/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/SiddiqSoft/DaemonLockfile/actions/workflows/codeql-analysis.yml)
+[![Build Status](https://dev.azure.com/siddiqsoft/siddiqsoft/_apis/build/status/SiddiqSoft.DaemonLockfile?branchName=main)](https://dev.azure.com/siddiqsoft/siddiqsoft/_build/latest?definitionId=6&branchName=main)
 ![](https://img.shields.io/nuget/v/SiddiqSoft.DaemonLockfile)
 ![](https://img.shields.io/github/v/tag/SiddiqSoft/DaemonLockfileandle)
-![](https://img.shields.io/azure-devops/tests/siddiqsoft/siddiqsoft/4)
-![](https://img.shields.io/azure-devops/coverage/siddiqsoft/siddiqsoft/4)
+![](https://img.shields.io/azure-devops/tests/siddiqsoft/siddiqsoft/6)
+![](https://img.shields.io/azure-devops/coverage/siddiqsoft/siddiqsoft/6)
 
 # Objective
 Provide for daemons (applications running as services under docker as an example) to limit themselves to a single instance per "name".
