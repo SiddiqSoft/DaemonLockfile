@@ -53,17 +53,22 @@ namespace siddiqsoft
 	class DaemonLockfile
 	{
 	public:
-		int			processId {};
+		/// @brief The running process id
+		int processId {};
+		/// @brief The running process name
 		std::string moduleName {};
-		bool		isLocked {};
+		/// @brief Indicates if the current process Id matches the owning process id
+		bool isLocked {};
+		/// @brief The owning process id
+		int owningProcessId {};
+		/// @brief The owning process name
+		std::string owningModuleName {};
 
 	protected:
-		int					  owningProcessId {};
-		std::string			  owningModuleName {};
 		std::filesystem::path directoryPath {};
 		std::filesystem::path lockFilePath {};
 
-		DaemonLockfile()					 = delete;
+		DaemonLockfile()                     = delete;
 		DaemonLockfile(DaemonLockfile&& src) = delete;
 		DaemonLockfile& operator=(DaemonLockfile&& src) = delete;
 
