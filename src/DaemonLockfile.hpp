@@ -1,6 +1,6 @@
 /*
 	Daemon Lockfile
-	Repo: https://github.com/SiddiqSoft/daemon_lockfile
+	Repo: https://github.com/SiddiqSoft/DaemonLockfile
 
 	BSD 3-Clause License
 
@@ -53,9 +53,9 @@ namespace siddiqsoft
 	class DaemonLockfile
 	{
 	public:
-		int									  processId {};
-		std::string							  moduleName {};
-		bool								  isLocked {};
+		int			processId {};
+		std::string moduleName {};
+		bool		isLocked {};
 
 	protected:
 		int					  owningProcessId {};
@@ -74,14 +74,12 @@ namespace siddiqsoft
 			: moduleName(src)
 			, processId(_getpid())
 		{
-			using namespace std;
-
 			try
 			{
-				directoryPath = filesystem::canonical(filesystem::path {filesystem::current_path()});
-				lockFilePath  = format("{}\\{}.lockfile", directoryPath.string(), moduleName);
+				directoryPath = std::filesystem::canonical(std::filesystem::path {std::filesystem::current_path()});
+				lockFilePath  = std::format("{}\\{}.lockfile", directoryPath.string(), moduleName);
 
-				if (filesystem::exists(lockFilePath))
+				if (std::filesystem::exists(lockFilePath))
 				{
 					// File already exists.. check if we're owner
 					try

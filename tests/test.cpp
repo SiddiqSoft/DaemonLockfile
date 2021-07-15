@@ -1,8 +1,8 @@
 #include "gtest/gtest.h"
-#include "../src/daemon_lockfile.hpp"
+#include "../src/DaemonLockfile.hpp"
 
 
-TEST(Helpers, Test_DaemonLockfile)
+TEST(Helpers, Test_isLocked_true)
 {
 	siddiqsoft::DaemonLockfile dl("basic_tests");
 
