@@ -46,9 +46,9 @@ steps:
   continueOnError: true
 
 - task: VSBuild@1
-  displayName: 'Build solution acw32h.sln RELEASE'
+  displayName: 'Build solution DaemonLockfile.sln RELEASE'
   inputs:
-    solution: 'acw32h.sln'
+    solution: 'DaemonLockfile.sln'
     platform: 'x64'
     configuration: 'Release'
     maximumCpuCount: true
@@ -75,7 +75,7 @@ steps:
   displayName: 'NuGet pack'
   inputs:
     command: 'pack'
-    packagesToPack: 'nuget/SiddiqSoft.acw32h.nuspec;!nuget/SiddiqSoft.acw32h.symbols.nuspec'
+    packagesToPack: 'nuget/SiddiqSoft.DaemonLockfile.nuspec;!nuget/SiddiqSoft.DaemonLockfile.symbols.nuspec'
     versioningScheme: 'off'
     buildProperties: 'VERSION=$(build.buildNumber)'
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
