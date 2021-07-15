@@ -70,7 +70,8 @@ namespace siddiqsoft
 	public:
 		/// @brief Automatically acquires a lock file if possible
 		/// @param src The name of the process (may include extention: `my_daemon.exe` or `my_daemon.a` or simply `my_daemon`)
-		DaemonLockfile(const std::string& src)
+		/// @param forceAcquire If set to true, then the lock will overwrite the owning processid
+		DaemonLockfile(const std::string& src, bool forceAcquire = false)
 			: moduleName(src)
 			, processId(_getpid())
 		{
@@ -79,7 +80,7 @@ namespace siddiqsoft
 				directoryPath = std::filesystem::canonical(std::filesystem::path {std::filesystem::current_path()});
 				lockFilePath  = std::format("{}\\{}.lockfile", directoryPath.string(), moduleName);
 
-				if (std::filesystem::exists(lockFilePath))
+				if (!forceAcquire && std::filesystem::exists(lockFilePath))
 				{
 					// File already exists.. check if we're owner
 					try

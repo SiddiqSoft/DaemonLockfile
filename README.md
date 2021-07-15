@@ -4,7 +4,7 @@ DaemonLockfile : A simple lockfile implementation for modern C++
 [![CodeQL](https://github.com/SiddiqSoft/DaemonLockfile/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/SiddiqSoft/DaemonLockfile/actions/workflows/codeql-analysis.yml)
 [![Build Status](https://dev.azure.com/siddiqsoft/siddiqsoft/_apis/build/status/SiddiqSoft.DaemonLockfile?branchName=main)](https://dev.azure.com/siddiqsoft/siddiqsoft/_build/latest?definitionId=6&branchName=main)
 ![](https://img.shields.io/nuget/v/SiddiqSoft.DaemonLockfile)
-![](https://img.shields.io/github/v/tag/SiddiqSoft/DaemonLockfileandle)
+![](https://img.shields.io/github/v/tag/SiddiqSoft/DaemonLockfile)
 ![](https://img.shields.io/azure-devops/tests/siddiqsoft/siddiqsoft/6)
 ![](https://img.shields.io/azure-devops/coverage/siddiqsoft/siddiqsoft/6)
 
@@ -30,7 +30,7 @@ Example (when using nuget to add the header in the solution)
 // Example daemon host structure
 struct MyDaemonType
 {
-	siddiqsoft::DaemonLockfile myLock{"MyDaemonType"};
+	siddiqsoft::DaemonLockfile myLockfile{"MyDaemonType", true}; //force acquire
 	..
 	..
 };
@@ -42,10 +42,18 @@ static MyDaemonType daemon;
 int main(int argc, char *argv[])
 {
 	// Bailout immediately if we do not have a lock--this implies some other instance is running
-	if(daemon.isLocked) return 1;
+	if(!daemon.myLockfile.isLocked) return 1;
+	..
+	..
+	// We have the exclusice lock
 }
 
 ```
+
+# Roadmap
+
+- [ ] [Lock the underlying lockfile](https://github.com/SiddiqSoft/DaemonLockfile/issues/2)
+- [ ] [Crash recovery logic](https://github.com/SiddiqSoft/DaemonLockfile/issues/1)
 
 <small align="right">
 
